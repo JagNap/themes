@@ -1,0 +1,113 @@
+/* ==UserStyle==
+@name        Peggy
+@namespace   userstyles
+@version     1.0.1
+@description For Alot to enjoy light mode (Pink theme)
+@match       *://*.twitch.tv/*
+@author      JagNap
+==/UserStyle== */
+
+/* Peggy palette */
+:root {
+  --ex-bg: #fff7fb;
+  --ex-bg-alt: #ffeaf6;
+  --ex-text: #3a0b22;
+  --ex-text-2: #5a2b40;
+  --ex-muted: #795b73;
+  --ex-border: #f3cfe3;
+  --ex-brand: #ff4da6;
+  --ex-brand-hover: #ff1a8c;
+  --ex-selection: #ffd1ea;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   CORE LOGIC
+   ────────────────────────────────────────────────────────────── */
+
+/* Force light-like tokens when theatre flips to dark */
+:root,
+.tw-root--theme-dark,
+.theme--dark,
+.tw-theme--dark {
+  --color-background-body: var(--ex-bg) !important;
+  --color-background-base: var(--ex-bg) !important;
+  --color-background-alt: var(--ex-bg-alt) !important;
+
+  --color-text-base: var(--ex-text) !important;
+  --color-text-alt: var(--ex-text-2) !important;
+  --color-text-link: #9147ff !important; /* keep Twitch link purple */
+
+  --color-border-base: var(--ex-border) !important;
+
+  /* don't cover the video */
+  --color-background-overlay: transparent !important;
+  --color-background-overlay-2: transparent !important;
+
+  /* primary buttons in theme color */
+  --color-background-button-primary-default: var(--ex-brand) !important;
+  --color-background-button-primary-hover: var(--ex-brand-hover) !important;
+  --color-text-button-primary: #fff !important;
+
+  color-scheme: light !important;
+}
+
+/* Video area keeps a neutral dark backing */
+.persistent-player,
+.video-player__container,
+.player-overlay-background { background-color: #000 !important; }
+
+/* Chat column surface + text */
+[data-a-player-state="theatre"] .right-column,
+[data-a-player-state="theatre"] .channel-root__right-column,
+[data-a-player-state="theatre"] .stream-chat,
+.stream-chat {
+  background: var(--ex-bg) !important;
+  color: var(--ex-text) !important;
+}
+
+/* Chat internals */
+.stream-chat .chat-scrollable-area__message-container,
+.stream-chat .chat-room__content,
+.stream-chat .chat-input,
+.stream-chat .chat-input__textarea,
+.stream-chat .chat-input__textarea textarea {
+  background: var(--ex-bg) !important;
+  color: var(--ex-text) !important;
+  border-color: var(--ex-border) !important;
+}
+
+/* Chat input */
+.stream-chat .chat-wysiwyg-input__box,
+.stream-chat .chat-input { background: var(--ex-bg) !important; border-color: var(--ex-border) !important; }
+.stream-chat .chat-wysiwyg-input__editor { color: var(--ex-text) !important; caret-color: var(--ex-text) !important; }
+.stream-chat .chat-wysiwyg-input__editor * { color: inherit !important; }
+.stream-chat .chat-wysiwyg-input__placeholder { color: var(--ex-muted) !important; opacity: 1 !important; }
+.stream-chat .chat-wysiwyg-input__editor::selection { background: var(--ex-selection) !important; color: var(--ex-text) !important; }
+
+/* Chat header chevron (uses currentColor) */
+button[data-a-target="right-column__toggle-collapse-btn"] { color: var(--ex-text) !important; }
+button[data-a-target="right-column__toggle-collapse-btn"] .tw-svg svg path { fill: var(--ex-text) !important; }
+
+/* Muted UI text */
+.tw-root--theme-dark .grjXFy,
+.tw-root--theme-dark .cWFBTs,
+.tw-root--theme-dark .iNFUpO,
+.tw-root--theme-dark .kqJeeo,
+.tw-root--theme-dark .iQDCwh,
+.tw-root--theme-dark .bIUThl,
+.tw-root--theme-dark .jPfhdt,
+.stream-chat [data-test-selector="chat-line__message"] .chat-line__timestamp,
+.stream-chat [data-test-selector="chat-line__message"] [data-test-selector="chat-message-reply-context"],
+.stream-chat [data-test-selector="chat-input-buttons"] .tw-muted { color: var(--ex-muted) !important; }
+
+/* Points/Bits */
+[data-test-selector="balance-wrapper"],
+[data-test-selector="community-points-summary"] { color: var(--ex-brand) !important; }
+[data-test-selector="balance-wrapper"] svg path,
+[data-test-selector="community-points-summary"] svg path { fill: var(--ex-brand) !important; stroke: var(--ex-brand) !important; }
+
+/* 9) Badge/icon asset swaps */
+img.chat-badge[src*="/assets/dark-"] { content: attr(src); } /* placeholder; narrow scope */
+img.chat-badge[src*="dark-40f6c299eb07b670b88d.svg"] {
+  content: url("https://assets.twitch.tv/assets/light-11f485845b62bbd59fe8.svg") !important;
+}
