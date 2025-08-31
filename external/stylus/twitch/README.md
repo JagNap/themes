@@ -42,7 +42,7 @@ Each theme lives in its own `.user.css` file.
 
 ---
 
-## 📝 Notes
+## Notes
 
 - Each theme is self-contained. Install only one at a time if you want to avoid conflicts.  
 - To switch themes, disable/uninstall the current one in Stylus and install another.  
@@ -50,7 +50,7 @@ Each theme lives in its own `.user.css` file.
 
 ---
 
-## 📂 Repo Structure (Twitch Section)
+## Structure (Twitch Section)
 
 ```
 themes/
@@ -64,6 +64,8 @@ themes/
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 Created by **JagNap** for personal use
+Feel free to create custom themes
+Future work possible to use dynamic twitch viarables instead of hard coded colours*
