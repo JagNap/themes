@@ -46,7 +46,7 @@ Each theme lives in its own `.user.css` file.
 
 - Each theme is self-contained. Install only one at a time if you want to avoid conflicts.  
 - To switch themes, disable/uninstall the current one in Stylus and install another.  
-- Tested on the latest versions of Twitch as of 2025-08.
+- Tested on the latest desktop version of Twitch as of 08/2025.
 
 ---
 
